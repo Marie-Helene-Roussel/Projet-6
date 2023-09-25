@@ -3,6 +3,11 @@ async function loadWorks() {
 console.log(response)
 const responseWork = await response.json()
 console.log(responseWork)
+
+for (let i = 0 ; i < responseWork.lenght; i++)
+{
+console.log(responseWork [i])
+}
 }
 
 loadWorks()
