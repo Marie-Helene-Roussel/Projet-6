@@ -1,4 +1,7 @@
-function loadWorks() {
+function loadWorks(categoryId = 0) {
+    //nettoie pour afficher une seule fois la galerie
+    const divGallery = document.querySelector(".gallery")
+    divGallery.innerHTML = ""
     // fonction pour retourner le résultat sans avoir à attendre
     return fetch("http:/localhost:5678/api/works")
         // exécute uniquement s'il a la réponse
@@ -6,13 +9,16 @@ function loadWorks() {
         // retourne tous les élément et recherche chaque élément un à un.
         .then((elements) => elements.forEach(element => {
             // affiche les images défini dans la fonction et le titre pour chaque élément
-            afficherFigureGallery(element.imageUrl, element.title)
+            if (categoryId === element.categoryId || categoryId == 0) {
+                afficherFigureGallery(element.imageUrl, element.title)
+
+            }
 
             console.log(elements)
         }))
 }
 
-loadWorks()
+loadWorks(0)
 
 // création du premier élément html pour la première vignette. Fonction pour l'affichage d'une image!
 
@@ -36,14 +42,41 @@ function afficherFigureGallery(url, title) {
 
 // fonctions qui vont afficher les boutons de filtre de la maquette. avec un fetch, en remplaçant le lien par catégorie
 
-//fonctions pour le filtre.
+//fonctions pour l'affichage du filtre.
+function afficherFiltres() {
+    const filterDiv = document.querySelector(".filterDiv")
+    console.log(filterDiv)
+    // fonction pour retourner le résultat des catégories
+    return fetch("http://localhost:5678/api/categories")
+        .then((responseCategories) => responseCategories.json())
+        .then((cats) => { return cats })
+        // retourne tous les élément et recherche chaque élément un à un mais cette fois pour les catérgories et non les images
+        .then((categories) => {
+            categories.forEach(category => {
+                const buttons = document.createElement("button")
+                //Les paramètres à afficher à partir du style css
+                buttons.innerText = category.name
+                buttons.className = "buttonFilter"
+                buttons.onclick = function () {
+                    loadWorks(category.id)
+                }
+                filterDiv.appendChild(buttons)
 
-//une fonction pour l'affichage
+            })
+        })
 
+}
 
-
-
-
-
-
+afficherFiltres()
 //une fonction pour le fonctionnement du filtre
+
+const tous = document.querySelector("#tous")
+tous.addEventListener("click", (event) => { loadWorks(0) })
+
+
+
+
+
+//partie pour le login
+
+
