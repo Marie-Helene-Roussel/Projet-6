@@ -308,6 +308,7 @@ footer nav ul {
 .buttonFilter {
 	border-radius: 50px;
 	border-color: solid 1px #1D6154;
+	background-color: white;
 	color: #1D6154;
 	font-weight: 700;
 	font-family: 'Syne';
@@ -317,7 +318,11 @@ footer nav ul {
 	min-width: 100px;
 	cursor: pointer;
 }
+.buttonFilter:focus{
+	background-color:#1D6154;
+	color: white;
 
+}
 
 
 
