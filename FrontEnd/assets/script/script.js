@@ -1,21 +1,30 @@
+let works = []
+
+
 function loadWorks(categoryId = 0) {
-    //nettoie pour afficher une seule fois la galerie
-    const divGallery = document.querySelector(".gallery")
-    divGallery.innerHTML = ""
+   
     // fonction pour retourner le résultat sans avoir à attendre
     return fetch("http:/localhost:5678/api/works")
-        // exécute uniquement s'il a la réponse
         .then((responseWork) => responseWork.json())
         // retourne tous les élément et recherche chaque élément un à un.
-        .then((elements) => elements.forEach(element => {
+        .then((elements) => {
             // affiche les images défini dans la fonction et le titre pour chaque élément
-            if (categoryId === element.categoryId || categoryId == 0) {
-                afficherFigureGallery(element.imageUrl, element.title)
 
-            }
-
+            works = elements
             console.log(elements)
-        }))
+            displayCategories(categoryId)
+        })
+}
+function displayCategories(categoryId) {
+     //nettoie pour afficher une seule fois la galerie
+     const divGallery = document.querySelector(".gallery")
+     divGallery.innerHTML = ""
+    works.forEach(element => {
+        if (categoryId === element.categoryId || categoryId == 0) {
+            afficherFigureGallery(element.imageUrl, element.title)
+
+        }
+    })
 }
 
 loadWorks(0)
@@ -58,7 +67,7 @@ function afficherFiltres() {
                 buttons.innerText = category.name
                 buttons.className = "buttonFilter"
                 buttons.onclick = function () {
-                    loadWorks(category.id)
+                    displayCategories(category.id)
                 }
                 filterDiv.appendChild(buttons)
 
