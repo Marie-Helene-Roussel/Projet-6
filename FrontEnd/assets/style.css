@@ -115,10 +115,12 @@ ol,
 ul {
 	list-style: none;
 }
+
 a {
 	text-decoration: none;
 	color: black;
 }
+
 blockquote,
 q {
 	quotes: none;
@@ -177,6 +179,86 @@ h2 {
 	font-size: 30px;
 	color: #1D6154
 }
+
+/* page de login*/
+
+.loginCenter {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+}
+
+.loginDiv {
+	position: relative;
+	top: 20px;
+	padding-bottom: 145px;
+}
+
+.email {
+	justify-content: center;
+	display: flex;
+	position: relative;
+	top: 65px;
+	align-content: center;
+	flex-wrap: wrap;
+	flex-direction: column;
+	gap: 3.5px;
+	font-size: 14px;
+	font-family: Work Sans;
+}
+
+.champ {
+	width: 379px;
+	height: 45px;
+	border: white;
+	box-shadow: 0px 4px 14px 0 #00000017;
+
+	margin-bottom: 10px;
+}
+
+.loginButton {
+	display: flex;
+	justify-content: center;
+	width: 179px;
+	height: 36px;
+	flex-wrap: wrap;
+	align-content: center;
+	background-color: #1D6154;
+	color: white;
+	border-radius: 60px;
+	border:#1D6154 ;
+
+
+}
+.oubliePosition{
+	margin-top: 20px;
+	display: flex;
+    justify-content: center;
+}
+.oublieLien{
+	height: 16px;
+	text-decoration: underline 1px #3D3D3D;
+	color: #3D3D3D;
+}
+
+.loginPosition {
+	display: flex;
+	justify-content: center;
+	margin-top: 5px;
+}
+
+
+.footerLogin{
+	position: relative;
+	top: 100px;
+}
+
+
+
+
+
+/* fin de la mise en forme de la page de login*/
 
 nav ul {
 	display: flex;
@@ -321,8 +403,9 @@ footer nav ul {
 	min-width: 100px;
 	cursor: pointer;
 }
-.buttonFilter:focus{
-	background-color:#1D6154;
+
+.buttonFilter:focus {
+	background-color: #1D6154;
 	color: white;
 
 }
