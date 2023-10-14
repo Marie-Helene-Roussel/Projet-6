@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 
-<body >
+<body>
     <header>
         <h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
         <nav>
@@ -28,14 +28,15 @@
     <main>
         <div class="loginDiv">
             <h2 class="loginCenter">Log In</h2>
-            <form method="get" action="" class="email">
+            <form class="loginForm">
+
                 <label for="email">E-mail</label>
-                <input type="email" class="champ">
+                <input type="email" class="champ" id="email" required>
 
                 <label for="motdepasse">Mot de passe</label>
-                <input type="text" class="champ">
+                <input type="text" class="champ" id="motDePasse" required>
 
-                <div class="loginPosition"><button class="loginButton"> Se connecter </button></div>
+                <div class="loginPosition"><input type="submit" value="Se connecter" class="loginButton"></div>
                 <div class="oubliePosition"><a href="" class="oublieLien">Mot de passe oublié</a></div>
 
 
@@ -44,15 +45,6 @@
 
 
         </div>
-
-
-
-
-
-
-
-
-
 
 
     </main>
@@ -64,7 +56,7 @@
             </ul>
         </nav>
     </footer>
-    <script src="assets/script/script.js"></script>
+    <script src="assets/script/login.js"></script>
 </body>
 
 </html>

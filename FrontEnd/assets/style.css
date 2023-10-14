@@ -195,7 +195,7 @@ h2 {
 	padding-bottom: 145px;
 }
 
-.email {
+.loginForm {
 	justify-content: center;
 	display: flex;
 	position: relative;
@@ -227,16 +227,18 @@ h2 {
 	background-color: #1D6154;
 	color: white;
 	border-radius: 60px;
-	border:#1D6154 ;
+	border: #1D6154;
 
 
 }
-.oubliePosition{
+
+.oubliePosition {
 	margin-top: 20px;
 	display: flex;
-    justify-content: center;
+	justify-content: center;
 }
-.oublieLien{
+
+.oublieLien {
 	height: 16px;
 	text-decoration: underline 1px #3D3D3D;
 	color: #3D3D3D;
@@ -249,7 +251,7 @@ h2 {
 }
 
 
-.footerLogin{
+.footerLogin {
 	position: relative;
 	top: 100px;
 }
@@ -405,6 +407,3 @@ footer nav ul {
 	color: white;
 
 }
-
-
-

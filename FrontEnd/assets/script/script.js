@@ -2,7 +2,7 @@ let works = []
 
 
 function loadWorks(categoryId = 0) {
-   
+
     // fonction pour retourner le résultat sans avoir à attendre
     return fetch("http:/localhost:5678/api/works")
         .then((responseWork) => responseWork.json())
@@ -16,9 +16,9 @@ function loadWorks(categoryId = 0) {
         })
 }
 function displayCategories(categoryId) {
-     //nettoie pour afficher une seule fois la galerie
-     const divGallery = document.querySelector(".gallery")
-     divGallery.innerHTML = ""
+    //nettoie pour afficher une seule fois la galerie
+    const divGallery = document.querySelector(".gallery")
+    divGallery.innerHTML = ""
     works.forEach(element => {
         if (categoryId === element.categoryId || categoryId == 0) {
             afficherFigureGallery(element.imageUrl, element.title)
@@ -68,6 +68,7 @@ function afficherFiltres() {
                 buttons.className = "buttonFilter"
                 buttons.onclick = function () {
                     displayCategories(category.id)
+                    // voir avec mentor pourquoi cela fait des erreurs dans la console.
                 }
                 filterDiv.appendChild(buttons)
 
@@ -82,10 +83,5 @@ afficherFiltres()
 const tous = document.querySelector("#tous")
 tous.addEventListener("click", (event) => { loadWorks(0) })
 
-
-
-
-
-//partie pour le login
 
 
