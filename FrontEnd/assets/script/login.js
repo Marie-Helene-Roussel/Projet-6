@@ -1,5 +1,9 @@
+//La fonction pour vérifier que le mot de passe et bon et envoyer un résultat
+
 function connect(event) {
-    event.preventDefault();
+    //preventDefault pour empêcher submit d'avoir un comportement par défaut
+
+    event.preventDefault()
     const logInput = {
         email: document.querySelector('#email').value,
         password: document.querySelector('#motDePasse').value
@@ -13,16 +17,20 @@ function connect(event) {
     })
         .then(resp => resp.json())
         .then((response) => {
+            //Si le mail ou mot de passe est incorrect
+
             if (!response.token) {
-                alert("Identifiant ou mot de passe incorrect");
+                alert("Identifiant ou mot de passe incorrect")
                 return;
             }
+            // lorsque le mail et mot de passe est correct
 
-            const token = JSON.stringify(response.token);
-            window.localStorage.setItem("token", token);
-            window.location = "./index.html";
+            const token = JSON.stringify(response.token)
+            window.localStorage.setItem("token", token)
+            window.location = "./index.html"
         })
-};
+}
+// Pour quand on clique sur le bouton se connecter
 
 const form = document.querySelector(".loginForm")
 form.addEventListener("submit", (event) => connect(event))
