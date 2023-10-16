@@ -26,7 +26,7 @@ function connect(event) {
             }
             // lorsque le mail et mot de passe est correct
 
-            const token = JSON.stringify(response.token)
+            const token = (response.token)
             window.localStorage.setItem("token", token)
             window.location = "./index.html"
         })
