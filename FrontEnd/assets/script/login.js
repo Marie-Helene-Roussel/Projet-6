@@ -1,3 +1,4 @@
+//partie pour le login
 //La fonction pour vérifier que le mot de passe et bon et envoyer un résultat
 
 function connect(event) {
