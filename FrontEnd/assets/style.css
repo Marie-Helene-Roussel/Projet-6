@@ -407,3 +407,34 @@ footer nav ul {
 	color: white;
 
 }
+
+/* page utilisateur*/
+/* pour la déconnection*/
+
+.sessionEdit {
+	display: none;
+}
+/*
+.loginSession{
+	display: none;
+}
+*/
+/*mode éditeur*/
+.editorMode {
+	
+	position: relative;
+	bottom: 50px;
+	left: 740px;
+	font-size: 0.9em;
+	
+}
+
+.fa-pen-to-square {
+	color: black;
+}
+
+/*modale*/
+.modale{
+	display: none;
+}
+
