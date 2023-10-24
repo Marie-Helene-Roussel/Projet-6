@@ -9,27 +9,32 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
 		rel="stylesheet">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+		integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
 	<header>
-		<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
-		<nav>
-			<ul>
-				<li>projets</li>
-				<li>contact</li>
-				<a href="./login.html" class="loginSession">
-					<li>login</li>
-				</a>
-				<a href=""><li class="logout sessionEdit">logout</li> </a>
-				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
-			</ul>
-		</nav>
+		<div class="headerEdition sessionEdit"> <i class="fa-solid fa-pen-to-square"></i> Mode édition </div>
+		<div class="headerForm">
+			<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+			<nav>
+				<ul>
+					<li>projets</li>
+					<li>contact</li>
+					<a href="./login.html" class="loginSession">
+						<li>login</li>
+					</a>
+					<a href="" class="logoutSession">
+						<li class="sessionEdit">logout</li>
+					</a>
+					<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+				</ul>
+			</nav>
+		</div>
 	</header>
 	<main>
 		<section id="introduction">
@@ -49,13 +54,16 @@
 		</section>
 		<section id="portfolio">
 
-			<h2>Mes Projets</h2>  
-			
-			<div class="editorMode sessionEdit"> <i class="fa-solid fa-pen-to-square"></i> modifier </div>
+			<div class="projetTitre">
+				<h2>Mes Projets</h2>
+
+				<div id="modifier" class="editorMode sessionEdit"> <i class="fa-solid fa-pen-to-square"></i> modifier
+				</div>
+			</div>
 			<div class="filterDiv loginSession">
 				<button class="buttonFilter" id="tous">Tous</button>
 			</div>
-			<div class="modale sessionEdit"> Bonjour</div>
+
 			<div class="gallery">
 			</div>
 		</section>
@@ -72,6 +80,41 @@
 				<input type="submit" value="Envoyer">
 			</form>
 		</section>
+		<div id="modale" class="modale">
+			<div class="modaleContent">
+				<button id="modaleClose" class="modaleClose">&times</button>
+				<h2 class="titleModale">Galerie photo</h2>
+				<div class="galleryModale"></div>
+				<button class="ajoutePhoto "> Ajouter une photo</button>
+			</div>
+		</div>
+
+		<div id="modale" class="modale2">
+			<div class="modaleContent">
+				<button id="modaleClose" class="modaleClose">&times</button>
+				<h2 class="titleModale">Ajout photo</h2>
+				<div class="iconePhoto"><i class="fa-regular fa-image"></i></div>
+				<button class="plusPhoto "> + Ajouter une photo</button>
+				<p class="instructionPhoto">jpg, png : 4mo max</p>
+				<div id="modaleForm" class="modaleForm">
+					<form action="" method="post">
+						<label for="title">Titre</label>
+						<input type="text" name="Titre" id="Titre">
+					</form>
+
+					<h2>Catégorie</h2>
+					<select name="Catégorie">
+						<option value=""></option>
+					</select>
+				</div>
+
+
+				<button class="validePhoto "> Valider </button>
+			</div>
+
+		</div>
+
+
 	</main>
 
 	<footer>
@@ -82,6 +125,8 @@
 		</nav>
 	</footer>
 	<script src="assets/script/script.js"></script>
+	<script src="assets/script/loginlogout.js"></script>
+	<script src="assets/script/modale.js"></script>
 </body>
 
 </html>

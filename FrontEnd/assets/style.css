@@ -149,8 +149,9 @@ body {
 
 header {
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
-	margin: 50px 0
+
 }
 
 section {
@@ -257,7 +258,7 @@ h2 {
 }
 
 /* fin de la mise en forme de la page de login*/
-
+/* fournis par le projet*/
 nav ul {
 	display: flex;
 	align-items: center;
@@ -409,24 +410,55 @@ footer nav ul {
 }
 
 /* page utilisateur*/
+/*Header quand l'utilisateur est connecté*/
+.headerEdition {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: 59px;
+	align-items: center;
+	position: relative;
+	background-color: black;
+	color: white;
+}
+
+.headerForm {
+	display: flex;
+	justify-content: space-between;
+	margin: 50px 0;
+
+
+
+}
+
 /* pour la déconnection*/
 
 .sessionEdit {
 	display: none;
 }
 
-/*
+
+
+/* test pour vérifier la mise en forme avant de créé les fonctions
 .loginSession{
 	display: none;
 }
 */
+/* titre et mode éditeur*/
+.projetTitre {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 20px;
+	align-content: center;
+
+}
+
 /*mode éditeur*/
 .editorMode {
-
-	position: relative;
-	bottom: 50px;
-	left: 740px;
+	padding-top: 15px;
 	font-size: 0.9em;
+	cursor: pointer;
 
 }
 
@@ -435,3 +467,219 @@ footer nav ul {
 }
 
 /*modale*/
+.modale {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	margin: 0;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background: rgba(141, 141, 141, 0.4);
+}
+
+.modaleContent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: white;
+	padding: 30px 20px;
+	width: 50%;
+	max-height: 100%;
+	border-radius: 14px;
+	position: relative;
+
+}
+
+
+/*bouton ajouter une photo*/
+.ajoutePhoto {
+	margin-top: 30px;
+	width: 237px;
+	border-radius: 50px;
+	border: solid 1px #1D6154;
+	font-weight: 700;
+	font-family: 'Syne';
+	font-style: normal;
+	font-size: 1.5em;
+	padding: 13px;
+	min-width: 100px;
+	cursor: pointer;
+	background-color: #1D6154;
+	color: white;
+
+
+}
+
+/*mise en forme de la gallerie de la modale*/
+.galleryModale {
+	width: 85%;
+	padding-bottom: 30px;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-column-gap: 10px;
+	grid-row-gap: 20px;
+	border-bottom: solid 1px #B3B3B3;
+}
+
+.galleryModale img {
+	width: 97.5%;
+	position: relative;
+}
+
+
+/*positionnement bouton modaleClose*/
+.modaleClose {
+	position: relative;
+	left: 332px;
+	bottom: 15px;
+	border: none;
+	background: white;
+	width: 24px;
+	height: 24px;
+	font-size: 2em;
+	cursor: pointer;
+}
+
+/* positionnement du titre*/
+.titleModale {
+	position: relative;
+	bottom: 15px;
+	font-family: Work Sans;
+	font-weight: 400;
+	color: black;
+}
+
+/*Deuxième modale*/
+.modale2 {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	margin: 0;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background: rgba(141, 141, 141, 0.4);
+}
+
+.iconePhoto {
+	width: 420px;
+	height: 180px;
+	border-radius: 3px;
+	background-color: #E8F1F6;
+}
+
+
+
+
+.fa-image {
+	color: #B9C5CC;
+	display: flex;
+	justify-content: center;
+	font-size: 5.8em;
+	position: relative;
+	top: 10px;
+
+}
+
+.plusPhoto {
+	width: 173px;
+	height: 36px;
+	margin-top: 30px;
+	border-radius: 50px;
+	border: solid 1px #CBD6DC;
+	font-weight: 700;
+	font-family: 'Syne';
+	font-style: normal;
+	font-size: 0.9em;
+	padding: 10px;
+	min-width: 100px;
+	cursor: pointer;
+	background-color: #CBD6DC;
+	color: #306685;
+	position: absolute;
+	top: 153px;
+}
+
+.instructionPhoto {
+	position: relative;
+	bottom: 31.5px;
+	font-size: 0.8em;
+	font-weight: 400;
+	color: #444444;
+}
+
+
+.modaleForm {
+	width: 420px;
+	height: 80px;
+	padding-top: 10px;
+	padding-bottom: 70px;
+	border-bottom: 1px solid #B3B3B3;
+}
+
+#modaleForm label {
+	display: flex;
+	padding: 5px;
+	font-size: 14px;
+	font-weight: 500;
+	color: #3D3D3D;
+}
+
+#modaleForm input {
+	width: 420px;
+	height: 30px;
+	margin-bottom: 20px;
+	background-color: #FFFFFF;
+	border: solid 1px #FFFFFF;
+	box-shadow: 0px 4px 14px 0px #00000017;
+}
+
+#modaleForm select {
+	width: 420px;
+	height: 30px;
+	margin-bottom: 15px;
+	background-color: #FFFFFF;
+	border: solid 1px #FFFFFF;
+	box-shadow: 0px 4px 14px 0px #00000017;
+}
+
+#modaleForm h2{
+	padding: 5px;
+	font-size: 14px;
+	font-weight: 500;
+	color: #3D3D3D;
+	font-family: Work Sans;
+}
+
+.validePhoto{
+	margin-top: 30px;
+	width: 237px;
+	border-radius: 50px;
+	border: solid 1px #A7A7A7;
+	font-weight: 700;
+	font-family: 'Syne';
+	font-style: normal;
+	font-size: 1.5em;
+	padding: 13px;
+	min-width: 100px;
+	cursor: pointer;
+	color: white;
+	/*
+	background-color: #1D6154;
+	
+	*/
+	
+	background-color: #A7A7A7;
+	color: white;
+}
