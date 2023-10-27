@@ -554,6 +554,11 @@ footer nav ul {
 	font-weight: 400;
 	color: black;
 }
+/*
+.trashButton{
+
+}
+*/
 
 /*Deuxième modale*/
 .modale2 {
@@ -682,4 +687,15 @@ footer nav ul {
 	
 	background-color: #A7A7A7;
 	color: white;
+}
+
+.return{
+	position: absolute;
+	left: 15px;
+	top: 15px;
+	background-color: white ;
+	border: none;
+	width: 31px;
+	height: 31px;
+	cursor: pointer;
 }
