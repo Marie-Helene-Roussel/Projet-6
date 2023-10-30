@@ -1,5 +1,5 @@
 function getToken() {
-    return JSON.parse(localStorage.getItem("token"))
+    return (localStorage.getItem("token"))
 }
 
 // fonction pour que la modale apparaisse
@@ -83,11 +83,11 @@ loadGalleryWorks()
 
 //fonction suppression
 function deleteImage(id, token) {
-    const url = 'http://localhost:5678/api/works/${id}';
+    const url = `http://localhost:5678/api/works/${id}`;
     const request = {
       method: "DELETE",
       headers: {
-        Authorization: 'Bearer ${token}',
+        Authorization: `Bearer ${token}`,
       }
     }
     return fetch(url, request);

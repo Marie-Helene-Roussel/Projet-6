@@ -699,3 +699,13 @@ footer nav ul {
 	height: 31px;
 	cursor: pointer;
 }
+
+/*Poubelle
+.trashButton{
+	position: relative;
+}
+.fa-trash-can{
+	position: absolute;
+	top: 1px;
+}
+*/
