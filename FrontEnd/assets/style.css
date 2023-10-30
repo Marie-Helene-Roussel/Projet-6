@@ -700,12 +700,12 @@ footer nav ul {
 	cursor: pointer;
 }
 
-/*Poubelle
+/*Poubelle*/
 .trashButton{
 	position: relative;
+	z-index: 10;
 }
 .fa-trash-can{
 	position: absolute;
 	top: 1px;
 }
-*/
