@@ -4,7 +4,7 @@ let works = []
 function loadWorks(categoryId = 0) {
 
     // fonction pour retourner le résultat sans avoir à attendre
-    return fetch("http:/localhost:5678/api/works")
+    return fetch("http://localhost:5678/api/works")
         .then((responseWork) => responseWork.json())
         // retourne tous les élément et recherche chaque élément un à un.
         .then((elements) => {

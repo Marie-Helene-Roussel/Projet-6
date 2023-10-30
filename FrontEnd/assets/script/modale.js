@@ -19,6 +19,7 @@ function closeModale() {
     // au clique sur la croix
     const modale = document.getElementById("modale")
     modale.style.display = "none"
+// rajouter un loadgallery
 
 }
 const modaleClose = document.getElementById("modaleClose")
@@ -65,7 +66,7 @@ function afficherGalleryModale(url, title, id) {
 
 function loadGalleryWorks() {
     // fonction pour afficher les images
-    return fetch("http:/localhost:5678/api/works")
+    return fetch("http://localhost:5678/api/works")
         // de base fetch fait un get
         .then((responseWork) => responseWork.json())
         // retourne tous les élément et recherche chaque élément un à un.
