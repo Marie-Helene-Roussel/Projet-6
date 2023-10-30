@@ -536,8 +536,7 @@ footer nav ul {
 /*positionnement bouton modaleClose*/
 .modaleClose {
 	position: relative;
-	left: 332px;
-	bottom: 15px;
+	left: 47%;
 	border: none;
 	background: white;
 	width: 24px;
@@ -703,9 +702,25 @@ footer nav ul {
 /*Poubelle*/
 .trashButton{
 	position: relative;
-	z-index: 10;
+    z-index: 10;
+    background-color: black;
+    width: 20.5px;
+    height: 20.5px;
+    top: 14.5%;
+    left: 73%;
+	border-radius: 2px;
 }
 .fa-trash-can{
 	position: absolute;
-	top: 1px;
+    display: flex;
+    width: 80%;
+    height: 90%;
+    top: 1%;
+    left: 5%;
+    color: white;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+	
 }
