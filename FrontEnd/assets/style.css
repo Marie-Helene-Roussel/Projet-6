@@ -214,7 +214,6 @@ h2 {
 	height: 45px;
 	border: white;
 	box-shadow: 0px 4px 14px 0 #00000017;
-
 	margin-bottom: 10px;
 }
 
@@ -553,11 +552,7 @@ footer nav ul {
 	font-weight: 400;
 	color: black;
 }
-/*
-.trashButton{
 
-}
-*/
 
 /*Deuxième modale*/
 .modale2 {
@@ -576,123 +571,124 @@ footer nav ul {
 	background: rgba(141, 141, 141, 0.4);
 }
 
-.iconePhoto {
-	width: 420px;
-	height: 180px;
-	border-radius: 3px;
-	background-color: #E8F1F6;
-}
-
-
-
-
-.fa-image {
-	color: #B9C5CC;
+.modale2 form {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
-	font-size: 5.8em;
-	position: relative;
-	top: 10px;
-
+	align-items: center;
+	gap: 30px;
+	padding-top: 30px;
+	width: 70%;
 }
 
-.plusPhoto {
-	width: 173px;
-	height: 36px;
-	margin-top: 30px;
-	border-radius: 50px;
-	border: solid 1px #CBD6DC;
-	font-weight: 700;
-	font-family: 'Syne';
-	font-style: normal;
-	font-size: 0.9em;
-	padding: 10px;
-	min-width: 100px;
-	cursor: pointer;
-	background-color: #CBD6DC;
-	color: #306685;
-	position: absolute;
-	top: 153px;
-}
-
-.instructionPhoto {
-	position: relative;
-	bottom: 31.5px;
-	font-size: 0.8em;
-	font-weight: 400;
-	color: #444444;
-}
-
-
-.modaleForm {
-	width: 420px;
-	height: 80px;
-	padding-top: 10px;
-	padding-bottom: 70px;
-	border-bottom: 1px solid #B3B3B3;
-}
-
-#modaleForm label {
+/* mise en forme du formulaire d'ajout d'image*/
+.modale2 .modaleContent .modal_form_imgDiv {
 	display: flex;
-	padding: 5px;
-	font-size: 14px;
-	font-weight: 500;
-	color: #3D3D3D;
+	flex-direction: column;
+	align-items: center;
+	gap: 15px;
+	background-color: rgba(232, 241, 246, 1);
+	padding-top: 30px;
+	height: 165px;
+	width: 100%;
 }
 
-#modaleForm input {
-	width: 420px;
-	height: 30px;
-	margin-bottom: 20px;
-	background-color: #FFFFFF;
-	border: solid 1px #FFFFFF;
-	box-shadow: 0px 4px 14px 0px #00000017;
+/* bouton ajout de photo*/
+.modale2 .modaleContent .modal_form_imgDiv .add-photo-button {
+	display: flex;
+	font-family: 'Work';
+	font-weight: 700;
+	color: rgba(48, 102, 133, 1);
+	background-color: rgba(203, 214, 220, 1);
+	width: 180px;
+	height: 80px;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	border-radius: 60px;
+	cursor: pointer;
+	margin: 10px;
 }
 
-#modaleForm select {
-	width: 420px;
-	height: 30px;
-	margin-bottom: 15px;
-	background-color: #FFFFFF;
-	border: solid 1px #FFFFFF;
-	box-shadow: 0px 4px 14px 0px #00000017;
-}
-
-#modaleForm h2{
-	padding: 5px;
-	font-size: 14px;
-	font-weight: 500;
-	color: #3D3D3D;
+/* text d'information des formats et de la taille de photo */
+.modale2 .modaleContent .modal_form_imgDiv .add-photo-specs {
+	position: relative;
+	bottom: 10px;
 	font-family: Work Sans;
 }
 
-.validePhoto{
-	margin-top: 30px;
-	width: 237px;
-	border-radius: 50px;
-	border: solid 1px #A7A7A7;
-	font-weight: 700;
-	font-family: 'Syne';
-	font-style: normal;
-	font-size: 1.5em;
-	padding: 13px;
-	min-width: 100px;
-	cursor: pointer;
-	color: white;
-	/*
-	background-color: #1D6154;
-	
-	*/
-	
-	background-color: #A7A7A7;
-	color: white;
+/*mise en forme du label pour pas qu'il apparaisse quand il faut pas*/
+.modale2 .modaleContent .modal_form_imgDiv .add-photo-input {
+	display: none;
+	visibility: none;
 }
 
-.return{
+/* mise en forme général de l'input et label*/
+.modale2 .modaleContent .modal_form_imgDiv .add-photo-label {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-bottom: 15px;
+}
+
+/* mise en forme de l'image dans la mignature*/
+.modale2 .modaleContent .modal_form_imgDiv img {
+	position: absolute;
+	top: 126px;
+	left: 32%;
+	height: 169px;
+
+}
+/*mise en forme des textes et titres du formulaire*/
+.modale2 .modaleContent .file-input-info {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	width: 100%;
+
+}
+
+#img-title {
+	border: none;
+	width: 500px;
+	height: 51px;
+	box-shadow: 0px 4px 14px 0 #00000017;
+}
+
+#img-category {
+	width: 500px;
+	height: 51px;
+	border: none;
+	box-shadow: 0px 4px 14px 0 #00000017;
+}
+
+/* bouton validé*/
+#ValidPhotoModal{
+	width: 237px;
+	height: 36px;
+	border-radius: 60px;
+	background-color: #A7A7A7;
+	border: none;
+	color: white;
+	font-size: 14px;
+	font-weight: 700;
+	font-family: 'Syne';
+}
+
+.fa-image {
+	width: 76px;
+	height: 76px;
+	color: #B9C5CC;
+	font-size: 5em;
+	position: relative;
+	top: 19px;
+}
+
+.return {
 	position: absolute;
 	left: 15px;
 	top: 15px;
-	background-color: white ;
+	background-color: white;
 	border: none;
 	width: 31px;
 	height: 31px;
@@ -700,27 +696,28 @@ footer nav ul {
 }
 
 /*Poubelle*/
-.trashButton{
+.trashButton {
 	position: relative;
-    z-index: 10;
-    background-color: black;
-    width: 20.5px;
-    height: 20.5px;
-    top: 14.5%;
-    left: 73%;
+	z-index: 10;
+	background-color: black;
+	width: 20.5px;
+	height: 20.5px;
+	top: 14.5%;
+	left: 73%;
 	border-radius: 2px;
 }
-.fa-trash-can{
+
+.fa-trash-can {
 	position: absolute;
-    display: flex;
-    width: 80%;
-    height: 90%;
-    top: 1%;
-    left: 5%;
-    color: white;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-	
+	display: flex;
+	width: 80%;
+	height: 90%;
+	top: 1%;
+	left: 5%;
+	color: white;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+
 }

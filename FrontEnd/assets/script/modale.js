@@ -19,11 +19,13 @@ function closeModale() {
     // au clique sur la croix
     const modale = document.getElementById("modale")
     modale.style.display = "none"
-// rajouter un loadgallery
-
+    
 }
 const modaleClose = document.getElementById("modaleClose")
 modaleClose.addEventListener("click", closeModale)
+// pour fermer à la modale 2
+
+
 // faut penser à ajouter à ajouter la fermeture de la gallerie au click sur la modale
 
 
@@ -48,9 +50,12 @@ function afficherGalleryModale(url, title, id) {
             // then pour pas qu'il lance tout de suite la fonction loadGalleryWorks
             // lance la gallerie pour raffraichir l'image en prenant en 
             //compte la suppression de l'image
-            
+
             galleryModale.innerHTML = ""
             loadGalleryWorks()
+            // rajouter un loadgallery
+            loadWorks()
+
         })
     })
     // qui désigne l'enfant de figure qui est la poubelle
@@ -86,12 +91,155 @@ loadGalleryWorks()
 function deleteImage(id, token) {
     const url = `http://localhost:5678/api/works/${id}`;
     const request = {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      }
+        method: "DELETE",
+        headers: {
+            Authorization: `Bearer ${token}`,
+        }
     }
     return fetch(url, request);
-  }
+}
 
 // Modale 2
+//fonction pour faire apparaître la seconde modale qui remplacera la première
+function switchModale() {
+    const modale1 = document.querySelector(".modale")
+    const modale2 = document.querySelector(".modale2")
+
+    if (modale1.style.display == "flex") {
+        modale1.style.display = "none"
+        modale2.style.display = "flex"
+       
+    }
+    else {
+        modale1.style.display = "flex"
+        modale2.style.display = "none"
+    }
+
+}
+
+const ajoutePhoto = document.querySelector(".ajoutePhoto")
+ajoutePhoto.addEventListener("click", switchModale)
+const retour = document.querySelector(".return")
+retour.addEventListener("click", switchModale)
+
+// ajout de la fonction pour les catégories de la liste déroulante
+function buildCategories() {
+    const select = document.querySelector("#img-category")
+    return fetch("http://localhost:5678/api/categories")
+        .then((categories) => categories.json())
+        .then((category) => { return category; })
+        .then((cats) => {
+            cats.forEach(cat => {
+                const option = document.createElement("option")
+                option.innerText = cat.name
+                option.value = cat.id
+                select.appendChild(option)
+            })
+        })
+}
+
+buildCategories()
+
+// fonction pour vérifier le format des images et leur taille
+const maxSize = 4000000
+
+function validFileType(files) {
+    const fileTypes = ["image/jpeg", "image/pjpeg", "image/png"]
+    let valid = true
+    for (let i = 0; i < files.length; i++) {
+        if (!fileTypes.includes(files[i].type)) {
+            valid = false
+        }
+    }
+    return valid;
+}
+function validFileSize(files) {
+    let valid = true
+    for (let i = 0; i < files.length; i++) {
+        if (files[i].size > maxSize) {
+            valid = false
+        }
+    }
+    return valid;
+}
+
+////fonction ajout
+function addImage(bodyData, token) {
+    console.log("executin addImage")
+    const url = "http://localhost:5678/api/works"
+    const request = {
+        method: "POST",
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+        body: bodyData,
+    };
+    return fetch(url, request);
+}
+// fonction pour valider l'ajout de la photo
+async function addPhoto(e) {
+    e.preventDefault();
+    console.log("executing addPhoto")
+    const token = getToken()
+    const addPhotoInput = document.getElementById("add-photo-input")
+    const titleInput = document.getElementById("img-title")
+    const categoryInput = document.getElementById("img-category")
+    const files = addPhotoInput.files
+    console.log(files)
+    const file = files[0]
+    const photoForm = document.getElementById('modalform-add')
+    validFileSize(files)
+    validFileType(files)
+    if (photoForm.reportValidity() && validFileType(files) && validFileSize(files)) {
+        console.log("fichier ok")
+        const formDataAdd = new FormData()
+        formDataAdd.append("image", file)
+        formDataAdd.append("title", titleInput.value)
+        formDataAdd.append("category", categoryInput.value)
+        await addImage(formDataAdd, token)
+
+        //    swipeModal();
+       loadWorks()
+        
+    } else {
+        if (files.length === 0) {
+            alert("Absence de fichier!")
+        } else if (!validFileType(files)) {
+            alert("Erreur: format de l'image non valide.")
+        } else if (!validFileSize(files)) {
+            alert("Erreur: la taille de l'image est trop grande.")
+        } else if (!titleInput.validity.valid) {
+            alert("Erreur: Le titre doit être renseigné.")
+        } else if (!categoryInput.validity.valid) {
+            alert("Erreur: La catégorie doit être renseignée.")
+            return;
+        }
+    }
+}
+//ajoute la photo au clic
+const photoEnPlus = document.querySelector("#ValidPhotoModal")
+photoEnPlus.addEventListener("click", (e) => addPhoto(e))
+
+/// affichage miniature image
+
+function imageHandler(e2) {
+    let store = document.getElementById('imgstore');
+    store.innerHTML = '<img src="' + e2.target.result + '">'
+}
+
+function loadimage(e1) {
+    let filename = e1.target.files[0]
+    let fr = new FileReader()
+    fr.onload = imageHandler
+    fr.readAsDataURL(filename)
+    document.querySelectorAll('.loadimage').forEach((a) => {
+        a.style.display = 'none'
+    });
+}
+// fonction pour que la mignature remplace l'icone, le boutton et le texte
+window.onload = function () {
+    let y = document.getElementById("add-photo-input")
+    y.addEventListener('change', loadimage)
+}
+
+// rend le bouton valider vert, quand le formulaire de la fonction addPhoto est validé.
