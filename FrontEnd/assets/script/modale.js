@@ -8,16 +8,16 @@ function openModale() {
     const modale = document.getElementById("modale")
     modale.style.display = "flex"
     const modaleContent = document.querySelector(".modaleContent")
-    // Ajoutez un événement de clic au document entier
-    //    document.addEventListener('click', function (event) {
+    // Ajoutez un événement de clic au document entier pour la première modale
+        document.addEventListener('click', function (event) {
     // Vérifiez si le clic a eu lieu en dehors du div
-    //       const isModaleActive = modale.style.display !== "none"
-    //       if (isModaleActive && !modaleContent.contains(event.target) && event.target.id !== "modifier" ) {
+           const isModaleActive = modale.style.display !== "none"
+           if (isModaleActive && !modaleContent.contains(event.target) && event.target.id !== "modifier" ) {
 
     // Le clic a eu lieu en dehors du div, faites ce que vous voulez ici
-    //           closeModale()
-    //       }
-    //   })
+              closeModale()
+           }
+       })
 
 }
 const modifier = document.getElementById("modifier")
@@ -89,7 +89,7 @@ function afficherGalleryModale(url, title, id) {
 function loadGalleryWorks() {
     const galleryModale = document.querySelector(".galleryModale")
     galleryModale.innerHTML = ""
-    // fonction pour afficher les images
+    // fonction pour afficher les images après un refresh de la page pour ne pas duppliquer les images.
     return fetch("http://localhost:5678/api/works")
         // de base fetch fait un get
         .then((responseWork) => responseWork.json())
@@ -106,7 +106,7 @@ function loadGalleryWorks() {
 loadGalleryWorks()
 
 
-//fonction suppression
+//fonction suppression d'image, pour le test l'image de l'abajour a été supprimé et sera remise lors de la soutenance!
 function deleteImage(id, token) {
     const url = `http://localhost:5678/api/works/${id}`;
     const request = {
@@ -182,7 +182,7 @@ function validFileSize(files) {
     return valid;
 }
 
-////fonction ajout
+////fonction ajout l'utilisation du data au lieu du JSON permet les vérifications de tailles et nom que ne permet pas JSON
 function addImage(bodyData, token) {
     console.log("executin addImage")
     const url = "http://localhost:5678/api/works"
@@ -195,7 +195,7 @@ function addImage(bodyData, token) {
     };
     return fetch(url, request);
 }
-// fonction pour valider l'ajout de la photo
+// fonction pour valider l'ajout de la photo et qui vérifie que la photo est au bon format et que le formulaire est bien rempli
 async function addPhoto(e) {
     e.preventDefault();
     console.log("executing addPhoto")
@@ -238,11 +238,11 @@ async function addPhoto(e) {
     }
 }
 
-//ajoute la photo au clic
+//ajoute la photo au clic sur le bouton valider
 const photoEnPlus = document.querySelector("#ValidPhotoModal")
 photoEnPlus.addEventListener("click", (e) => addPhoto(e))
 
-/// affichage miniature image
+/// affichage miniature de l'image
 
 function imageHandler(e2) {
     let store = document.getElementById('imgstore');
@@ -258,10 +258,9 @@ function loadimage(e1) {
         a.style.display = 'none'
     })
 }
-// fonction pour que la mignature remplace l'icone, le boutton et le texte
+// fonction pour que la mignature remplace l'icone, le boutton et le texte d'information de la taille et format de photo
 window.onload = function () {
     let y = document.getElementById("add-photo-input")
     y.addEventListener('change', loadimage)
 }
 
-// rend le bouton valider vert, quand le formulaire de la fonction addPhoto est validé.
