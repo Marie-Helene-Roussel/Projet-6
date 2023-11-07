@@ -182,7 +182,7 @@ function validFileSize(files) {
     return valid;
 }
 
-////fonction ajout l'utilisation du data au lieu du JSON permet les vérifications de tailles et nom que ne permet pas JSON
+////fonction ajout l'utilisation du data au lieu du JSON permet les vérifications de tailles, format et de nom que ne permet pas JSON
 function addImage(bodyData, token) {
     console.log("executin addImage")
     const url = "http://localhost:5678/api/works"
@@ -195,7 +195,8 @@ function addImage(bodyData, token) {
     };
     return fetch(url, request);
 }
-// fonction pour valider l'ajout de la photo et qui vérifie que la photo est au bon format et que le formulaire est bien rempli
+// fonction pour valider l'ajout de la photo et qui vérifie que la photo est au bon format et que le formulaire est bien rempli avec un formData 
+/// à la place d'un JSON
 async function addPhoto(e) {
     e.preventDefault();
     console.log("executing addPhoto")
