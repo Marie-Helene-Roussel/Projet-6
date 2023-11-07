@@ -7,7 +7,17 @@ function openModale() {
     // au click la modale doit passer du display non à display block
     const modale = document.getElementById("modale")
     modale.style.display = "flex"
+    const modaleContent = document.querySelector(".modaleContent")
+    // Ajoutez un événement de clic au document entier
+    //    document.addEventListener('click', function (event) {
+    // Vérifiez si le clic a eu lieu en dehors du div
+    //       const isModaleActive = modale.style.display !== "none"
+    //       if (isModaleActive && !modaleContent.contains(event.target) && event.target.id !== "modifier" ) {
 
+    // Le clic a eu lieu en dehors du div, faites ce que vous voulez ici
+    //           closeModale()
+    //       }
+    //   })
 
 }
 const modifier = document.getElementById("modifier")
@@ -19,11 +29,18 @@ function closeModale() {
     // au clique sur la croix
     const modale = document.getElementById("modale")
     modale.style.display = "none"
-    
+    const modale2 = document.getElementById("modale2")
+    modale2.style.display = "none"
+
+
 }
 const modaleClose = document.getElementById("modaleClose")
 modaleClose.addEventListener("click", closeModale)
-// pour fermer à la modale 2
+const modaleClose2 = document.getElementById("modaleClose2")
+modaleClose2.addEventListener("click", closeModale)
+const modale = document.getElementById("modale")
+// Sélectionnez le div que vous souhaitez surveiller
+//Remplacez '#votreDiv' par le sélecteur de votre div
 
 
 // faut penser à ajouter à ajouter la fermeture de la gallerie au click sur la modale
@@ -70,6 +87,8 @@ function afficherGalleryModale(url, title, id) {
 }
 
 function loadGalleryWorks() {
+    const galleryModale = document.querySelector(".galleryModale")
+    galleryModale.innerHTML = ""
     // fonction pour afficher les images
     return fetch("http://localhost:5678/api/works")
         // de base fetch fait un get
@@ -108,7 +127,7 @@ function switchModale() {
     if (modale1.style.display == "flex") {
         modale1.style.display = "none"
         modale2.style.display = "flex"
-       
+
     }
     else {
         modale1.style.display = "flex"
@@ -198,9 +217,11 @@ async function addPhoto(e) {
         formDataAdd.append("category", categoryInput.value)
         await addImage(formDataAdd, token)
 
-        //    swipeModal();
-       loadWorks()
-        
+        switchModale()
+        loadWorks()
+
+        loadGalleryWorks()
+
     } else {
         if (files.length === 0) {
             alert("Absence de fichier!")
@@ -216,6 +237,7 @@ async function addPhoto(e) {
         }
     }
 }
+
 //ajoute la photo au clic
 const photoEnPlus = document.querySelector("#ValidPhotoModal")
 photoEnPlus.addEventListener("click", (e) => addPhoto(e))
@@ -234,7 +256,7 @@ function loadimage(e1) {
     fr.readAsDataURL(filename)
     document.querySelectorAll('.loadimage').forEach((a) => {
         a.style.display = 'none'
-    });
+    })
 }
 // fonction pour que la mignature remplace l'icone, le boutton et le texte
 window.onload = function () {
