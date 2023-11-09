@@ -31,7 +31,7 @@ function connect(event) {
             window.location = "./index.html"
         })
 }
-// Pour quand on clique sur le bouton se connecter
+// Pour quand on clique sur le bouton se connecter, submit, car c'est un formulaire, c'est mieux qu'un click
 
 const form = document.querySelector(".loginForm")
 form.addEventListener("submit", (event) => connect(event))

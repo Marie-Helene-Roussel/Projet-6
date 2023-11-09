@@ -9,15 +9,16 @@ function openModale() {
     modale.style.display = "flex"
     const modaleContent = document.querySelector(".modaleContent")
     // Ajoutez un événement de clic au document entier pour la première modale
-        document.addEventListener('click', function (event) {
+    // fonction facultative selon mon mentor, à mettre en fonction si besoin
+    //    document.addEventListener('click', function (event) {
     // Vérifiez si le clic a eu lieu en dehors du div
-           const isModaleActive = modale.style.display !== "none"
-           if (isModaleActive && !modaleContent.contains(event.target) && event.target.id !== "modifier" ) {
+    //      const isModaleActive = modale.style.display !== "none"
+    //     if (isModaleActive && !modaleContent.contains(event.target) && event.target.id !== "modifier" ) {
 
     // Le clic a eu lieu en dehors du div, faites ce que vous voulez ici
-              closeModale()
-           }
-       })
+    //        closeModale()
+    //      }
+    //})
 
 }
 const modifier = document.getElementById("modifier")
@@ -85,7 +86,7 @@ function afficherGalleryModale(url, title, id) {
     console.log(img)
 
 }
-
+// fonction pour charger la gallerie
 function loadGalleryWorks() {
     const galleryModale = document.querySelector(".galleryModale")
     galleryModale.innerHTML = ""
@@ -196,7 +197,7 @@ function addImage(bodyData, token) {
     return fetch(url, request);
 }
 // fonction pour valider l'ajout de la photo et qui vérifie que la photo est au bon format et que le formulaire est bien rempli avec un formData 
-/// à la place d'un JSON
+/// à la place d'un JSON, car plus adapté à la situation
 async function addPhoto(e) {
     e.preventDefault();
     console.log("executing addPhoto")
@@ -249,7 +250,7 @@ function imageHandler(e2) {
     let store = document.getElementById('imgstore');
     store.innerHTML = '<img src="' + e2.target.result + '">'
 }
-
+// charge l'image miniature
 function loadimage(e1) {
     let filename = e1.target.files[0]
     let fr = new FileReader()
